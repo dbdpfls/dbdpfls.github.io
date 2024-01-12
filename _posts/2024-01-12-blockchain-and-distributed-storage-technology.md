@@ -1,3 +1,13 @@
+---
+layout: post
+title: 블록체인과 분산저장기술
+subtitle:
+categories: blockchain
+banner:
+  image: https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/9b62ad56-1d5d-4114-bbb4-8bae805d8e59
+tags: [blockchain]
+---
+
 ## 분산 데이터베이스란?
 
 여러 곳에 **분산되어있는 데이터베이스**를 **하나의 데이터베이스 관리 시스템(DBMS, Database Management System)으로 제어**하는 형태의 데이터베이스입니다.

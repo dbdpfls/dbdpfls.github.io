@@ -1,4 +1,12 @@
-![표지1](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/9abf2e73-a640-4011-b056-eb5c3c4f5b67)
+---
+layout: post
+title: 블록체인 기본 개념
+subtitle:
+categories: blockchain
+banner:
+  image: https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/9abf2e73-a640-4011-b056-eb5c3c4f5b67
+tags: [blockchain]
+---
 
 ## 블록체인이란?
 
