@@ -3,8 +3,6 @@ layout: post
 title: 커스텀 마크다운 에디터 만들기 1
 subtitle:
 categories: frontend
-banner:
-  image: https://github.com/Ragon-Labs/ragon/assets/103565462/6c22935c-0b33-4015-b77f-f1e45c1748c9
 tags: [frontend, develop]
 ---
 
