@@ -121,7 +121,7 @@ const [value, setValue] = useState(
 rehypeSanitize를 적용하지 않은 경우에는 아래의 이미지에서 보이듯 alert가 나타납니다.
 ![image](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/5a4fc3d8-ffd7-445b-9d9e-5c8730721294)
 
-rehypeSanitize를 적용하면 아래의 이미지에서 보이듯 alert가 나타지 않습니다.
+rehypeSanitize를 적용하면 아래의 이미지에서 보이듯 alert가 나타나지 않습니다.
 ![image](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/abde5b14-54c9-40a3-a06b-b893207a944c)
 
 - 참고
