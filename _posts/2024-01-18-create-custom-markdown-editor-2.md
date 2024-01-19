@@ -102,7 +102,7 @@ const sanitizeConfig = {
 
 sanitizeConfig에 허용하지 않는 태그 목록을 작성하여 markdown 에디터 컴포넌트에
 
-```typescript
+```
 previewOptions={{
             rehypePlugins: [[rehypeSanitize, sanitizeConfig]],
           }}
