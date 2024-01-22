@@ -47,13 +47,18 @@ Next.js의 슬랙채널을 통해 [Next.js 14버전](https://nextjs.org/blog/nex
 
 ## markdown 에디터 라이브러리 세팅
 
-커스텀 마크다운 에디터를 위해 설치한 라이브러리는 [@uiw/react-md-editor](https://www.npmjs.com/package/@uiw/react-md-editor) 입니다.
-uiw의 프로젝트 중 react-codemirror를 사용해본 경험이 있어서 해당 라이브러리로 선택했습니다.
+커스텀 마크다운 에디터를 위해 설치한 라이브러리는 [@uiw/react-md-editor](https://www.npmjs.com/package/@uiw/react-md-editor)와 [react-markdown](https://github.com/remarkjs/react-markdown)입니다.
+에디터로는 uiw의 프로젝트 중 react-codemirror를 사용해본 경험이 있어서 **@uiw/react-md-editor**로 선택했고, **react-markdown**은 마크다운으로 작성한 것을 html로 파싱하여 보여주는 화면을 위해 선택했습니다.
+react-markdown은 커스텀 태그를 만들어서 보여주기에 용이하다고 생각해서 선택했습니다.
 
 라이브러리 설치를 위해 아래의 명령어를 터미널에 입력합니다.
 
 ```
+// @uiw/react-md-editor 설치
 npm i @uiw/react-md-editor
+
+// react-markdown 설치
+npm install react-markdown
 ```
 
 설치가 완료되면 코드를 작성합니다.
@@ -61,35 +66,31 @@ npm i @uiw/react-md-editor
 저는 값을 리듀서에 저장을 해주었기때문에 아래와 같이 작성했습니다.
 
 ```typescript
-export default function TestView() {
-  const dispatch = useAppDispatch();
-  const mdContent = useAppSelector((state) => state.mdReducer.content);
+const [value, setValue] = useState(`**Hello world!!!** `);
 
-  const handleChangeValue = (e: string | undefined) => {
-    dispatch(changeContent(e));
-  };
-
-  return (
-    <Box>
-      <MDEditor value={mdContent} onChange={(e) => handleChangeValue(e)} />
-    </Box>
-  );
-}
+return (
+  <>
+    <MDEditor height={"50vh"} value={value} preview="edit" />
+    <ReactMarkdown>{value}</ReactMarkdown>
+  </>
+);
 ```
 
 이렇게 코드를 작성하면
-![md](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/094ab08f-66ac-47f5-937b-7203dacd2070)
+![md](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/6f696bf8-a2c9-451e-b8d1-8977336f2daf)
 위와 같은 화면이 나옵니다.
-기본적으로 왼쪽은 에디터 오른쪽은 뷰어입니다.
+위쪽의 검은색 컴포넌트가 MDEditor로 에디터 컴포넌트입니다.
+에디터 컴포넌트 아래에 ReactMarkdown가 보여지면서 에디터에 작성한 마크다운이 html로 보여집니다.
 
 ```typescript
 <Box data-color-mode="light">
-  <MDEditor value={mdContent} onChange={(e) => handleChangeValue(e)} />
+  <MDEditor height={"50vh"} value={value} preview="edit" />
 </Box>
 ```
 
+MDEditor를 감싸는 상위 컴포넌트에
 **data-color-mode**를 **light**로 지정하면
-![mdLight](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/c828eafb-128f-403d-bd49-ea853e603970)
+![mdLight](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/ebdae2e6-2a78-44a6-af25-3360601adf2e)
 위와 같이 흰색 배경으로 바뀌게 됩니다.
 
 또한 **preview** 옵션을 사용하면 에디터와 뷰어를 따로 분리할 수도 있습니다.
@@ -98,27 +99,14 @@ preview 옵션을 설정하지 않으면 기본값은 live입니다.
 - 에디터 화면
 
 ```typescript
-<MDEditor
-  height={"50vh"}
-  value={mdContent}
-  onChange={(e) => handleChangeValue(e)}
-  preview="edit"
-/>
+<MDEditor height={'10vh'} value={value} preview="edit" />
+<MDEditor height={'10vh'} value={value} preview="live" />
+<MDEditor height={'10vh'} value={value} preview="preview" />
 ```
 
-![mdEditor](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/36c51e3c-6e29-4880-88b9-7acd916a880e)
-
-- 뷰어 화면
-
-```typescript
-<MDEditor height={"50vh"} value={mdContent} preview="preview" />
-```
-
-![mdViewer](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/926029fe-0a7f-419c-97cc-e0426e1eff33)
-
-위에서 말한 옵션들을 사용하면 각각의 화면은 아래와 같이 보여집니다.
-![total](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/8f85af61-53f1-4682-8d20-2b386bd45636)
+![mdEditor](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/aedc8c2a-68b4-4ec4-9e87-9d7cd58f0968)
 
 - 참고
   - [Next.js 공식문서](https://nextjs.org/docs/app/building-your-application/routing)
   - [@uiw/react-md-editor](https://www.npmjs.com/package/@uiw/react-md-editor)
+  - [react-markdown](https://github.com/remarkjs/react-markdown)

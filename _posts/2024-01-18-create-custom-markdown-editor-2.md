@@ -50,63 +50,39 @@ AST는 소스 코드 구조를 트리 형태로 표현한 것입니다.
 
 위 태그들은 악성 스크립트나 악의적으로 페이지 또는 컨텐츠를 변경할 수 있으므로 사용하지 못하도록 설정할 것입니다.
 
-[@uiw/react-md-editor](https://uiwjs.github.io/react-md-editor/) 공식문서에서는 [rehype-sanitize](https://github.com/rehypejs/rehype-sanitize)를 사용하는 방법을 안내해주고 있습니다.
+위 태그가 사용되지 않도록 하려면 html 뷰어 화면에서 설정이 되어야 하기에
 
-![image](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/c274c2ee-43ba-4952-a170-ba9929fdcb73)
-
-아래의 명령어를 터미널에 입력하여 rehype-sanitize를 설치합니다.
-
-```
-npm install rehype-sanitize
-```
-
-설치가 완료됐으면 react-md-editor 컴포넌트가 있는 파일에 아래의 코드를 작성해줍니다.
+react-markdown의 disallowedElements 옵션에 허용하지 않을 태그 목록을 넣어줍니다.
 
 ```typescript
-const sanitizeConfig = {
-  disallowedTagsMode: "discard",
-  tagNames: [
-    "script",
-    "iframe",
-    "noembed",
-    "noframes",
-    "link",
-    "style",
-    "embed",
-    "object",
-    "meta",
-    "input",
-    "button",
-    "select",
-    "textarea",
-    "form",
-    "frame",
-    "frameset",
-    "textarea",
-    "xmp",
-  ],
+  const sanitizeTagNames = [
+    'script',
+    'iframe',
+    'noembed',
+    'noframes',
+    'style',
+    'embed',
+    'object',
+    'meta',
+    'input',
+    'button',
+    'Button',
+    'select',
+    'textarea',
+    'form',
+    'frame',
+    'frameset',
+    'textarea',
+    'xmp',
+  ];
 
   return (
-      <Box>
-        <MDEditor
-          value={value}
-          onChange={() => setValue}
-          previewOptions={{
-            rehypePlugins: [[rehypeSanitize, sanitizeConfig]],
-          }}
-        />
-      </Box>
+      <ReactMarkdown disallowedElements={sanitizeTagNames}>{value}</ReactMarkdown>
   );
 };
 ```
 
-sanitizeConfig에 허용하지 않는 태그 목록을 작성하여 markdown 에디터 컴포넌트에
-
-```
-previewOptions={{
-            rehypePlugins: [[rehypeSanitize, sanitizeConfig]],
-          }}
-```
+위와 같이 코드를 작성하고 설정이 잘 되었는지 확인해봅니다.
 
 으로 작성해주면 적용이 됩니다.
 
@@ -118,11 +94,8 @@ const [value, setValue] = useState(
 );
 ```
 
-rehypeSanitize를 적용하지 않은 경우에는 아래의 이미지에서 보이듯 alert가 나타납니다.
-![image](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/5a4fc3d8-ffd7-445b-9d9e-5c8730721294)
-
-rehypeSanitize를 적용하면 아래의 이미지에서 보이듯 alert가 나타나지 않습니다.
-![image](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/abde5b14-54c9-40a3-a06b-b893207a944c)
+결과 화면을 보면 IFRAME 태그를 인식하지 않고 텍스트로 보여주는 것을 확인할 수 있습니다.
+![disallowedElements](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/273bfa1f-e75c-4a01-a07e-1d5f7bc8514a)
 
 - 참고
   - [자바스크립트 개발자를 위한 AST(번역)](https://gyujincho.github.io/2018-06-19/AST-for-JS-devlopers)
