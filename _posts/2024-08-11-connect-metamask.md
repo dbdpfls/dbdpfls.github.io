@@ -38,6 +38,8 @@ npm i wagmi
 
 설치가 되었으면 메타마스크와 연동하기 위한 코드를 작성합니다.
 
+## Connect MetaMask
+
 공식 문서에서 [Connectors](https://wagmi.sh/react/api/connectors)를 확인해보면 **injected**와 **metaMask**가 있습니다. 이 두 커넥터를 사용해서 메타마스크를 연결 할 수 있습니다.
 
 - injected: 다양한 EIP-1193 호환 지갑을 지원하며, 설정을 통해 다양한 커스터마이징이 가능합니다.
