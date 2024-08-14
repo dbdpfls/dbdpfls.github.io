@@ -8,8 +8,10 @@ tags: [frontend, develop]
 
 많은 DApp에서는 메타마스크로 서비스에 로그인을 할 수 있습니다.
 
-| ![OpenSea](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/2add24b5-505f-4251-9fa9-365d8a1d681d) | ![UniSwap](https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/618653ef-9059-476e-be83-8798d33a2f3a) |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+<div style="display: flex;">
+  <img src="https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/2add24b5-505f-4251-9fa9-365d8a1d681d" alt="OpenSea" style="margin-right: 10px;">
+  <img src="https://github.com/dbdpfls/dbdpfls.github.io/assets/103565462/618653ef-9059-476e-be83-8798d33a2f3a" alt="UniSwap">
+</div>
 
 <br>
 이번 글은 리액트에서 메타마스크를 연동하여 로그인하는 방법에 대해 기록합니다.
