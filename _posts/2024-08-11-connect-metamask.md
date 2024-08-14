@@ -151,6 +151,8 @@ export default function ConnectWallet() {
 - useDisconnect: 지갑 연결 해제 기능 구현을 위한 Hook입니다.
   - disconnect: 지갑 연결을 해제할 때 사용하며, connect와 동일하게 성공, 실패, 완료 등의 상태를 처리하기 위한 콜백 함수를 받을 수 있습니다.
 
+![develop_page](https://github.com/user-attachments/assets/e13eb309-4e5d-4f9f-9d44-90b90b7380c4)
+
 ## Error
 
 개발하다가 발생한 에러입니다.
