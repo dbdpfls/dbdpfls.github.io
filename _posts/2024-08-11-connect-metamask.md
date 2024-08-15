@@ -148,10 +148,10 @@ export default function ConnectWallet() {
 
 **useConnect**와 **useDisconnect**는 wagmi에서 제공하는 훅(Hook)입니다.
 
-- useConnect: 지갑 연결 기능을 쉽게 구현을 위한 Hook입니다.
-  - connect: 지갑을 특정 체인 및 커넥터와 연결할 때 사용하며, 연결 과정에서 발생하는 여러 상태(성공, 실패, 완료 등)를 처리하기 위해 다양한 콜백 함수를 받을 수 있습니다.
-- useDisconnect: 지갑 연결 해제 기능 구현을 위한 Hook입니다.
-  - disconnect: 지갑 연결을 해제할 때 사용하며, connect와 동일하게 성공, 실패, 완료 등의 상태를 처리하기 위한 콜백 함수를 받을 수 있습니다.
+- [useConnect](https://wagmi.sh/react/api/hooks/useConnect): 지갑 연결 기능을 쉽게 구현하기 위한 Hook입니다.
+  - connect: 지갑을 특정 체인 및 커넥터와 연결할 때 사용됩니다. 연결 과정에서 발생하는 다양한 상태(성공, 실패, 완료 등)를 처리하기 위한 여러 콜백 함수를 받을 수 있습니다.
+- [useDisconnect](https://wagmi.sh/react/api/hooks/useDisconnect): 지갑 연결 해제 기능을 구현하기 위한 Hook입니다.
+  - disconnect: 지갑 연결을 해제할 때 사용됩니다. 이 함수도 연결 해제 과정에서 발생하는 다양한 상태(성공, 실패, 완료 등)를 처리하기 위한 여러 콜백 함수를 받을 수 있습니다.
 
 ![develop_page](https://github.com/user-attachments/assets/e13eb309-4e5d-4f9f-9d44-90b90b7380c4)
 
