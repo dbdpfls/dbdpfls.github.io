@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lodash to JavaScript
+title: Lodash to JavaScript - slice
 subtitle: slice
 categories: frontend
 tags: [frontend, develop, lodash]
